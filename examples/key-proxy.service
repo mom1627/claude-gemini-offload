@@ -1,0 +1,13 @@
+[Unit]
+Description=Key proxy (injects OmniRoute API key)
+After=network.target omniroute.service
+
+[Service]
+User=omni
+EnvironmentFile=/etc/key-proxy/.env
+ExecStart=/usr/bin/node /opt/key-proxy/proxy.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

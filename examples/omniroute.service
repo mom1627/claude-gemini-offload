@@ -1,0 +1,15 @@
+[Unit]
+Description=OmniRoute AI router
+After=network.target
+
+[Service]
+User=omni
+Environment=HOME=/home/omni
+Environment=PORT=20128
+# Path from `command -v omniroute`
+ExecStart=/usr/bin/omniroute
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
